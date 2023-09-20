@@ -35,18 +35,27 @@ function startApp(name){
  */
 console.log(onDataReceived)
 function onDataReceived(text) {
-  if (text === 'quit'.replace().split() || text === 'exit'.replace().split() {
+  if (text === 'quit'.replace().split() || text === 'exit'.replace().split()) {
     quit();
   }
-  else if(text === 'hello'.replace().split() ){
-    hello(onDataReceived);
+  else if(text=== 'hello'){
+   console.log("hello!")
   }
-  else if(text === 'help'.replace().split() ){
+  else if(text.startsWith('help')){
     //  helping people listing possible commands
-    help();
+    const helping = text.replace('help ', '')
+    help(helping);
   }
-  else{
-    onDataReceived(text.trim);
+  else if(text === 'help'){
+    console.log("quit/exit")
+    console.log("hello")
+    console.log("list")
+    console.log("add")
+    console.log("Remove")
+
+  }
+  else if(text === 'list'){
+    FileList()
   }
 }
 
@@ -68,9 +77,13 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(onDataReceived){
-  console.log('hello!')
+function hello(){
+  console.log('hello'+chickenSub+ '!')
+  var chickenSub = text.trim()
+
+  
 }
+
 
 
 /**
