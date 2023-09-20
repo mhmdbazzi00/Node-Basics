@@ -78,7 +78,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(){
-  console.log('hello'+chickenSub+ '!')
+  console.log('hello'+chickenSub+ 'world'+'!')
   var chickenSub = text.trim()
 
   
