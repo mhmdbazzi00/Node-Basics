@@ -41,6 +41,7 @@ function onDataReceived(text) {
     hello();
   }
   else if(text === 'help/n'){
+    //  helping people listing possible commands
     help();
   }
   else{
