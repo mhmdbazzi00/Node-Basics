@@ -83,6 +83,9 @@ function hello(){
 
   
 }
+function help(){
+  console.log('help')
+}
 
 
 
