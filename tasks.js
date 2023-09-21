@@ -108,9 +108,14 @@ startApp("Mohammad Bazzi")
 function help(helping) {
   console.log(`help ${helping}`);
 }
+function list(){
+  for (i=0;i<tasks.length;i++){
+    console.log(`${i+1} - [${tasks[i].done? "✓":" "}] ${tasks[i].taskName}`);  // here the function will print the number of task first, then a dash, then the task it self , then a new line
+  }
+  }
 
 
-const tasks = ["1_buy groceries","2_prepare groceries","3_make food"];
+const tasks = [{task:"1_buy groceries",done:false}, {task:"2_prepare groceries", done:false},{task:"3_make food", done:false}];
 function list(){
 for (i=0;i<tasks.length;i++){
   console.log(tasks[i]+'\n');
@@ -125,3 +130,35 @@ function Remove(){
 
 tasks.splice(parseInt(result[1]-1),1)
 }
+function ifremove() {
+  if (parseInt(result[1]) > tasks.length || parseInt(result[1]) < 1) {//if the umber is more than the tasks or lower than 1 it will print that the task number does not exist
+    console.log("Task number does not exist");
+  }
+}
+function edit() {
+  if (result.length < 2) {
+    console.log('Error: Please provide the task number and new text.'); // checking if the user's input is a number
+  } else if (result.length === 2) {      // checking if it exactly has two elements
+    var newText = result[1];
+    tasks[tasks.length - 1] = newText;
+    console.log('Task ' + tasks.length + ' has been updated to "' + newText + '".');
+  } else if (result.length >= 3) {
+    var taskIndex = result[1] - 1;
+
+    var newText = result.slice(2).join(' ');
+    if (taskIndex < 0 || taskIndex >= tasks.length) {
+      console.log('Error: Invalid task number.');
+    } else {
+      tasks[taskIndex] = newText;
+      console.log('Task ' + (taskIndex + 1) + ' has been updated to "' + newText + '".');
+    }
+  }
+}
+
+function Check(){
+  tasks[parseInt(result[1]-1)].done=true
+}
+function unCheck(){
+  tasks[parseInt(result[1]-1)].done=false
+}
+
