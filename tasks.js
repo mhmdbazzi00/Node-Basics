@@ -55,9 +55,20 @@ function onDataReceived(text) {
 
   }
   else if(text === 'list'){
-    FileList()
+   list()
+  }
+  else if (text.startsWith('add ')){
+    add()
+  }
+   else if (text.startsWith('remove ')){
+    Remove()
+   }
+  else {
+    unknownCommand(text);
   }
 }
+
+
 
 
 /**
@@ -68,7 +79,7 @@ function onDataReceived(text) {
  * @returns {void}
  */
 function unknownCommand(c){
-  console.log(onDataReceived+c.trim()+'"')
+  console.log('unknown command: "'+c.trim()+'"')
 }
 
 
@@ -77,17 +88,10 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello'+chickenSub+ 'world'+'!')
-  var chickenSub = text.trim()
+function hello(name){
+  console.log(`hello ${name}!`) //Print 'hello' with the specified argument
 
-  
 }
-function help(){
-  console.log('help')
-}
-
-
 
 /**
  * Exits the application
@@ -101,3 +105,23 @@ function quit(){
 
 // The following line starts the application
 startApp("Mohammad Bazzi")
+function help(helping) {
+  console.log(`help ${helping}`);
+}
+
+
+const tasks = ["1_buy groceries","2_prepare groceries","3_make food"];
+function list(){
+for (i=0;i<tasks.length;i++){
+  console.log(tasks[i]+'\n');
+}
+}
+
+function add(){
+  tasks.push(result.slice(1,result.length))
+}
+
+function Remove(){
+
+tasks.splice(parseInt(result[1]-1),1)
+}
